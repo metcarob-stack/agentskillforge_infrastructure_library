@@ -9,6 +9,13 @@ _SERVER_ID_LENGTH = 3
 _ALLOWED_CHARACTERS = "abcdefghijklmnopqrstuvwxyz0123456789"
 _PLATFORM_ID_PATTERN = re.compile(r"^[a-z0-9]{6}$")
 _SERVER_ID_PATTERN = re.compile(r"^[a-z0-9]{3}$")
+_CUSTOMER_ID_PATTERN = re.compile(r"^[a-z0-9]{3,10}$")
+
+def _validate_customer_id(customer_id: str) -> None:
+    if customer_id is None:
+        raise ValueError("customer_id must not be None")
+    if not isinstance(customer_id, str) or not _CUSTOMER_ID_PATTERN.fullmatch(customer_id):
+        raise ValueError("customer_id must contain between 3 and 10 lowercase letters or digits")
 
 
 def _validate_platform_id(platform_id: str) -> None:
