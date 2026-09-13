@@ -35,17 +35,20 @@ uv build
 ## Release
 
 ```bash
+uv version 0.0.5
+uv lock
+
 uv build
 
 git add .
-git commit -m "release: v0.0.4"
+git commit -m "release: v0.0.5"
 git push origin main
 
-git tag -a v0.0.4 -m "Release v0.0.4"
-git push origin v0.0.4
+git tag -a v0.0.5 -m "Release v0.0.5"
+git push origin v0.0.5
 
-gh release create v0.0.4 \
---title "v0.0.4" \
+gh release create v0.0.5 \
+--title "v0.0.5" \
 --notes "Describe the changes in this release." \
 --verify-tag
 ```
