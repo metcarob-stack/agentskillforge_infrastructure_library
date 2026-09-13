@@ -35,20 +35,24 @@ uv build
 ## Release
 
 ```bash
-uv version 0.0.5
+uv version bump --patch
+VERSION=$(uv version --short)
 uv lock
+
+sed -i 's/^__version__ = .*/__version__ = "0.0.6"/' \
+  src/agentskillforge_infrastructure_library/__init__.py
 
 uv build
 
 git add .
-git commit -m "release: v0.0.5"
+git commit -m "release: v0.0.6"
 git push origin main
 
-git tag -a v0.0.5 -m "Release v0.0.5"
-git push origin v0.0.5
+git tag -a v0.0.5 -m "Release v0.0.6"
+git push origin v0.0.6
 
-gh release create v0.0.5 \
---title "v0.0.5" \
+gh release create v0.0.6 \
+--title "v0.0.6" \
 --notes "Describe the changes in this release." \
 --verify-tag
 ```

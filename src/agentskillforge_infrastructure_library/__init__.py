@@ -7,9 +7,11 @@ from .platform_naming_conventions import (
     get_platform_dns_name,
     get_server_dns_name,
     get_server_hostname,
+    validate_customer_id,
+    validate_platform_id
 )
 
-__version__ = "0.0.3"
+__version__ = "0.0.7"
 
 
 def hello_world() -> str:

@@ -11,14 +11,14 @@ _PLATFORM_ID_PATTERN = re.compile(r"^[a-z0-9]{6}$")
 _SERVER_ID_PATTERN = re.compile(r"^[a-z0-9]{3}$")
 _CUSTOMER_ID_PATTERN = re.compile(r"^[a-z0-9]{3,10}$")
 
-def _validate_customer_id(customer_id: str) -> None:
+def validate_customer_id(customer_id: str) -> None:
     if customer_id is None:
         raise ValueError("customer_id must not be None")
     if not isinstance(customer_id, str) or not _CUSTOMER_ID_PATTERN.fullmatch(customer_id):
         raise ValueError("customer_id must contain between 3 and 10 lowercase letters or digits")
 
 
-def _validate_platform_id(platform_id: str) -> None:
+def validate_platform_id(platform_id: str) -> None:
     if not isinstance(platform_id, str) or not _PLATFORM_ID_PATTERN.fullmatch(platform_id):
         raise ValueError("platform_id must contain exactly 6 lowercase letters or digits")
 
@@ -73,4 +73,6 @@ __all__ = [
     "get_platform_dns_name",
     "get_server_dns_name",
     "get_server_hostname",
+    "validate_customer_id",
+    "validate_platform_id"
 ]
