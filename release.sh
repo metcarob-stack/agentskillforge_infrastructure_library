@@ -2,6 +2,8 @@
 # Exit immediately if a command exits with a non-zero status
 set -e
 
+uv run --with pytest pytest
+
 uv version --bump patch
 VERSION=$(uv version --short)
 uv lock

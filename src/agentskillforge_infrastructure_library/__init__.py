@@ -11,7 +11,7 @@ from .platform_naming_conventions import (
     validate_platform_id
 )
 
-__version__ = "0.0.7"
+__version__ = "0.0.8"
 
 
 def hello_world() -> str:

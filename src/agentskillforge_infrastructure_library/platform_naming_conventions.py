@@ -41,7 +41,7 @@ def generate_server_id(platform_id: str) -> str:
     The caller is responsible for checking the generated ID against the
     platform's existing server registry and retrying on collision.
     """
-    _validate_platform_id(platform_id)
+    validate_platform_id(platform_id)
     return "".join(
         secrets.choice(_ALLOWED_CHARACTERS) for _ in range(_SERVER_ID_LENGTH)
     )
@@ -49,21 +49,21 @@ def generate_server_id(platform_id: str) -> str:
 
 def get_server_hostname(platform_id: str, server_id: str) -> str:
     """Return the internal hostname in the form ``{server_id}-{platform_id}``."""
-    _validate_platform_id(platform_id)
+    validate_platform_id(platform_id)
     _validate_server_id(server_id)
     return f"{server_id}-{platform_id}"
 
 
 def get_server_dns_name(platform_id: str, server_id: str) -> str:
     """Return the direct administrative DNS name for a server."""
-    _validate_platform_id(platform_id)
+    validate_platform_id(platform_id)
     _validate_server_id(server_id)
     return f"s-{server_id}.a-{platform_id}.agentskillforge.com"
 
 
 def get_platform_dns_name(platform_id: str) -> str:
     """Return the wildcard service DNS name for a platform."""
-    _validate_platform_id(platform_id)
+    validate_platform_id(platform_id)
     return f"*.{platform_id}.agentskillforge.com"
 
 

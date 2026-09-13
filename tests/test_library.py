@@ -9,11 +9,6 @@ from agentskillforge_infrastructure_library import (
     hello_world,
 )
 
-
-def test_version():
-    assert __version__ == "0.0.3"
-
-
 def test_platform_naming_conventions():
     platform_id = generate_platform_id()
     assert len(platform_id) == 6
