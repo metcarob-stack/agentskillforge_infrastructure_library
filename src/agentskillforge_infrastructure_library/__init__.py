@@ -8,7 +8,8 @@ from .platform_naming_conventions import (
     get_server_dns_name,
     get_server_hostname,
     validate_customer_id,
-    validate_platform_id
+    validate_platform_id,
+    validate_agent_id
 )
 
 __version__ = "0.0.9"

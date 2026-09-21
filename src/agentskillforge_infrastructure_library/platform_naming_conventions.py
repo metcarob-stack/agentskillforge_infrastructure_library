@@ -67,6 +67,21 @@ def get_platform_dns_name(platform_id: str) -> str:
     return f"*.{platform_id}.agentskillforge.com"
 
 
+_AGENT_ID_PATTERN = re.compile(r"^[a-zA-Z0-9-]{3,}$")
+
+def validate_agent_id(agent_id: str) -> None:
+    # note id's are specified by users and double as name
+    if len(agent_id)<3:
+        raise ValueError("agent_id must be at least 3 characters long")
+    if agent_id[1] == "-":
+        raise ValueError("agent_id can not start with x-")
+    if not isinstance(agent_id, str) or not _AGENT_ID_PATTERN.fullmatch(agent_id):
+        raise ValueError(
+            "agent_id must be at least 3 characters long and contain only "
+            "letters, digits, or hyphens"
+        )
+    pass
+
 __all__ = [
     "generate_platform_id",
     "generate_server_id",
@@ -74,5 +89,6 @@ __all__ = [
     "get_server_dns_name",
     "get_server_hostname",
     "validate_customer_id",
-    "validate_platform_id"
+    "validate_platform_id",
+    "validate_agent_id"
 ]
