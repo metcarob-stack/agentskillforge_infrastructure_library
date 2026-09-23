@@ -12,7 +12,7 @@ from .platform_naming_conventions import (
     validate_agent_id
 )
 
-__version__ = "0.0.10"
+__version__ = "0.0.11"
 
 
 def hello_world() -> str:
