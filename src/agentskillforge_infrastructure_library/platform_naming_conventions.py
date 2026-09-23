@@ -67,7 +67,7 @@ def get_platform_dns_name(platform_id: str) -> str:
     return f"*.{platform_id}.agentskillforge.com"
 
 
-_AGENT_ID_PATTERN = re.compile(r"^[a-zA-Z0-9-]{3,}$")
+_AGENT_ID_PATTERN = re.compile(r"^[a-z0-9-]{3,}$")
 
 def validate_agent_id(agent_id: str) -> None:
     # note id's are specified by users and double as name

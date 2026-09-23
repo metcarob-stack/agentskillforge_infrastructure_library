@@ -13,4 +13,6 @@ def test_validate_agent_id():
         validate_agent_id("x-aaa")
     with pytest.raises(ValueError):
         validate_agent_id("mee_too")
+    with pytest.raises(ValueError):
+        validate_agent_id("meE_too")
     validate_agent_id("mee-too123-555")
